@@ -1,0 +1,6 @@
+{
+    "HOSTNAME": "http://localhost",
+    "SSI_SERVICE_ENDPOINT": "https://service.ssi-lab.nl",
+    "SSI_SERVICE_MY_ORG_ID": "dd1ad19b-32bd-4360-81a7-eb304ca00809",
+    "SSI_SERVICE_SHARED_SECRET": "c789cf1a6db76dccdb2df2441fe7830afaad364f7f2b9cf36d9cea6619232ba7"
+}

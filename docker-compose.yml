@@ -1,0 +1,22 @@
+version: '3'
+services:
+  namecredentialdemo-php-server:
+    ports:
+      - "80"
+    container_name: iata-php-server
+    build:
+      context: .
+    networks:
+      - proxy
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.iatademo-insecure.rule: Host(`iata.demos.ssi-lab.nl`)
+      traefik.http.routers.iatademo-insecure.middlewares: redirectToHttps@file,redirectSsiLabOrg@file,redirectSsiLabEu@file,securityHeaders@file
+      traefik.http.routers.iatademo.tls.certresolver: letsencrypt
+      traefik.http.routers.iatademo.tls.options: safeTLSOptions@file
+      traefik.http.routers.iatademo.middlewares: securityHeaders@file
+      traefik.http.routers.iatademo.rule: Host(`iata.demos.ssi-lab.nl`)
+
+networks:
+  proxy:
+    external: true
